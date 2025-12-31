@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能网络医生 - 专业健康咨询平台</title>
+    <!-- 引入图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入独立的CSS文件（关键） -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>智能网络医生</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="#symptom-check"><i class="fas fa-stethoscope"></i> 症状自查</a></li>
+                    <li><a href="#disease-library"><i class="fas fa-book-medical"></i> 疾病库</a></li>
+                    <li><a href="#health-resource"><i class="fas fa-link"></i> 健康资源</a></li>
+                    <li><a href="#tips"><i class="fas fa-exclamation-triangle"></i> 就医提示</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 首页内容 -->
+    <main>
+        <!-- 首页banner -->
+        <section id="home" class="section-content home-banner">
+            <div class="banner-content">
+                <h2>专业的基础健康咨询平台</h2>
+                <p>提供全面的症状自查、疾病科普、健康资源导航服务</p>
+                <div class="banner-btn">
+                    <a href="#symptom-check" class="primary-btn">立即自查 <i class="fas fa-arrow-right"></i></a>
+                    <a href="#health-resource" class="secondary-btn">健康资源 <i class="fas fa-hospital"></i></a>
+                </div>
+                <p class="warning-tip"><i class="fas fa-shield-alt"></i> 本平台信息仅作参考，不替代专业医生诊断！</p>
+            </div>
+        </section>
+
+        <!-- 症状自查模块 -->
+        <section id="symptom-check" class="section-content">
+            <div class="section-header">
+                <h2><i class="fas fa-search-medical"></i> 症状自查</h2>
+                <p>选择身体不适部位，获取基础健康分析建议</p>
+            </div>
+            
+            <div class="check-container">
+                <div class="form-group">
+                    <label for="body-part">选择身体部位：</label>
+                    <select id="body-part" class="form-control">
+                        <option value="">--请选择--</option>
+                        <option value="head">头部 <i class="fas fa-head-side-virus"></i></option>
+                        <option value="eye">眼部 <i class="fas fa-eye"></i></option>
+                        <option value="ear">耳部 <i class="fas fa-ear-listen"></i></option>
+                        <option value="nose-throat">鼻喉 <i class="fas fa-user-nurse"></i></option>
+                        <option value="chest">胸部 <i class="fas fa-lungs"></i></option>
+                        <option value="abdomen">腹部 <i class="fas fa-bone"></i></option>
+                        <option value="back">腰背部 <i class="fas fa-backpack"></i></option>
+                        <option value="limbs">四肢 <i class="fas fa-hand-sparkles"></i></option>
+                        <option value="skin">皮肤 <i class="fas fa-allergies"></i></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="symptom">选择具体症状：</label>
+                    <select id="symptom" class="form-control" disabled>
+                        <option value="">--请先选择身体部位--</option>
+                    </select>
+                </div>
+
+                <button id="check-btn" class="btn primary-btn">查看专业分析 <i class="fas fa-stethoscope"></i></button>
+            </div>
+            
+            <div id="result" class="result-box"></div>
+        </section>
+
+        <!-- 常见疾病库 -->
+        <section id="disease-library" class="section-content">
+            <div class="section-header">
+                <h2><i class="fas fa-book-medical"></i> 常见疾病库</h2>
+                <p>了解常见疾病的症状、应对措施和就医建议</p>
+            </div>
+            
+            <div class="disease-grid">
+                <div class="disease-card">
+                    <div class="card-icon"><i class="fas fa-head-cough"></i></div>
+                    <h3>普通感冒</h3>
+                    <p class="symptom-tag">症状：鼻塞、流涕、咽痛、轻微发热</p>
+                    <p class="suggestion">建议：多喝水、保证休息，症状加重及时就医</p>
+                </div>
+
+                <div class="disease-card">
+                    <div class="card-icon"><i class="fas fa-stomach"></i></div>
+                    <h3>急性肠胃炎</h3>
+                    <p class="symptom-tag">症状：腹痛、腹泻、恶心、呕吐</p>
+                    <p class="suggestion">建议：清淡饮食，补充电解质，严重时及时就医</p>
+                </div>
+
+                <div class="disease-card">
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h3>偏头痛</h3>
+                    <p class="symptom-tag">症状：单侧头部搏动性疼痛，畏光、恶心</p>
+                    <p class="suggestion">建议：避免诱因，疼痛难忍时及时就医</p>
+                </div>
+
+                <div class="disease-card">
+                    <div class="card-icon"><i class="fas fa-teeth"></i></div>
+                    <h3>牙周炎</h3>
+                    <p class="symptom-tag">症状：牙龈出血、口臭、牙齿松动</p>
+                    <p class="suggestion">建议：保持口腔清洁，定期洗牙，及时牙科就诊</p>
+                </div>
+
+                <div class="disease-card">
+                    <div class="card-icon"><i class="fas fa-heart"></i></div>
+                    <h3>高血压</h3>
+                    <p class="symptom-tag">症状：头晕、头痛、胸闷，部分患者无症状</p>
+                    <p class="suggestion">建议：低盐饮食，规律监测，遵医嘱服药</p>
+                </div>
+
+                <div class="disease-card">
+                    <div class="card-icon"><i class="fas fa-syringe"></i></div>
+                    <h3>过敏性鼻炎</h3>
+                    <p class="symptom-tag">症状：打喷嚏、流清涕、鼻痒、鼻塞</p>
+                    <p class="suggestion">建议：远离过敏原，症状明显时就医</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 健康资源 -->
+        <section id="health-resource" class="section-content">
+            <div class="section-header">
+                <h2><i class="fas fa-link"></i> 健康资源导航</h2>
+                <p>紧急医疗电话、健康咨询指引</p>
+            </div>
+            
+            <div class="resource-grid">
+                <div class="resource-card emergency-card">
+                    <div class="card-header">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3>紧急医疗电话</h3>
+                    </div>
+                    <ul class="resource-list">
+                        <li><strong>全国急救电话：</strong>120</li>
+                        <li><strong>交通事故：</strong>122</li>
+                        <li><strong>心理援助热线：</strong>400-161-9995</li>
+                        <li><strong>中毒急救热线：</strong>010-83132345</li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card official-card">
+                    <div class="card-header">
+                        <i class="fas fa-hospital"></i>
+                        <h3>就医指引</h3>
+                    </div>
+                    <ul class="resource-list">
+                        <li><strong>普通疾病：</strong>前往社区医院/综合医院全科</li>
+                        <li><strong>专科疾病：</strong>对应专科医院/综合医院专科</li>
+                        <li><strong>紧急情况：</strong>直接前往医院急诊科</li>
+                        <li><strong>慢病管理：</strong>定期复诊，遵医嘱治疗</li>
+                    </ul>
+                </div>
+
+                <div class="resource-card online-card">
+                    <div class="card-header">
+                        <i class="fas fa-info-circle"></i>
+                        <h3>健康咨询建议</h3>
+                    </div>
+                    <ul class="resource-list">
+                        <li><strong>症状咨询：</strong>可先通过本平台自查参考</li>
+                        <li><strong>用药咨询：</strong>务必咨询执业医师/药师</li>
+                        <li><strong>体检咨询：</strong>每年至少一次全面体检</li>
+                        <li><strong>养生咨询：</strong>遵循科学养生，拒绝偏方</li>
+                    </ul>
+                </div>
+
+                <!-- 新增的资源卡片 -->
+                <div class="resource-card hospital-card">
+                    <div class="card-header">
+                        <i class="fas fa-hospital-user"></i>
+                        <h3>知名医院官网</h3>
+                    </div>
+                    <ul class="resource-list">
+                        <li><a href="https://www.pumch.cn/" target="_blank">北京协和医院</a></li>
+                        <li><a href="https://www.fudanmed.com/" target="_blank">复旦大学附属中山医院</a></li>
+                        <li><a href="https://www.rjh.com.cn/" target="_blank">上海交通大学医学院附属瑞金医院</a></li>
+                        <li><a href="https://www.301hospital.com.cn/" target="_blank">中国人民解放军总医院</a></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card online-consult-card">
+                    <div class="card-header">
+                        <i class="fas fa-laptop-medical"></i>
+                        <h3>线上医疗咨询平台</h3>
+                    </div>
+                    <ul class="resource-list">
+                        <li><a href="https://www.haodf.com/" target="_blank">好大夫在线 - 专业医生咨询</a></li>
+                        <li><a href="https://chunyuyisheng.com/" target="_blank">春雨医生 - 在线问诊平台</a></li>
+                        <li><a href="https://www.alihealth.com/" target="_blank">阿里健康 - 医疗健康服务</a></li>
+                        <li><a href="https://www.miaoshou.net/" target="_blank">妙手医生 - 专业医疗咨询</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 就医提示 -->
+        <section id="tips" class="section-content">
+            <div class="section-header">
+                <h2><i class="fas fa-exclamation-triangle"></i> 重要就医提示</h2>
+                <p>线上咨询不能替代线下专业诊疗</p>
+            </div>
+            
+            <div class="tips-container">
+                <div class="tips-card danger-tips">
+                    <h3><i class="fas fa-skull-crossbones"></i> 紧急情况立即就医</h3>
+                    <ul>
+                        <li>持续高烧（≥38.5℃超过2天）</li>
+                        <li>剧烈胸痛、呼吸困难、意识模糊</li>
+                        <li>大量出血、严重外伤、疑似中风</li>
+                        <li>急性腹痛、呕吐不止、严重过敏</li>
+                    </ul>
+                </div>
+
+                <div class="tips-card regular-tips">
+                    <h3><i class="fas fa-notes-medical"></i> 常规就医建议</h3>
+                    <ul>
+                        <li>症状持续超过3天无缓解</li>
+                        <li>慢性病患者指标异常</li>
+                        <li>不明原因体重下降、乏力</li>
+                        <li>儿童、老人、孕妇出现不适</li>
+                    </ul>
+                </div>
+
+                <div class="tips-card disclaimer-tips">
+                    <h3><i class="fas fa-shield-alt"></i> 免责声明</h3>
+                    <p>本平台提供的所有健康信息仅供参考，不能作为诊断、治疗、用药的依据。如有健康问题，请及时前往正规医疗机构就诊，遵循专业医生的诊断和治疗方案。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#home">首页</a>
+                <a href="#symptom-check">症状自查</a>
+                <a href="#disease-library">疾病库</a>
+                <a href="#health-resource">健康资源</a>
+                <a href="#tips">就医提示</a>
+            </div>
+            <p class="copyright">© 2025 智能网络医生 - 健康咨询平台 | 本平台仅提供基础健康信息参考，不承担医疗责任</p>
+            <p class="contact">建议反馈：<a href="mailto:health@example.com">health@example.com</a></p>
+        </div>
+    </footer>
+
+    <!-- 交互逻辑脚本 -->
+    <script>
+        // 扩充后的症状数据（9个身体部位）
+        const symptomData = {
+            head: [
+                { value: "headache", text: "头痛" },
+                { value: "dizziness", text: "头晕" },
+                { value: "insomnia", text: "失眠" },
+                { value: "memory-loss", text: "记忆力下降" }
+            ],
+            eye: [
+                { value: "eye-pain", text: "眼痛" },
+                { value: "blurred-vision", text: "视力模糊" },
+                { value: "dry-eye", text: "眼睛干涩" },
+                { value: "red-eye", text: "眼睛发红" }
+            ],
+            ear: [
+                { value: "ear-pain", text: "耳痛" },
+                { value: "tinnitus", text: "耳鸣" },
+                { value: "hearing-loss", text: "听力下降" },
+                { value: "ear-discharge", text: "耳朵流脓" }
+            ],
+            "nose-throat": [
+                { value: "sore-throat", text: "咽痛" },
+                { value: "nasal-congestion", text: "鼻塞" },
+                { value: "nosebleed", text: "流鼻血" },
+                { value: "hoarseness", text: "声音嘶哑" }
+            ],
+            chest: [
+                { value: "chest-pain", text: "胸痛" },
+                { value: "cough", text: "咳嗽" },
+                { value: "breath-short", text: "胸闷/气短" },
+                { value: "palpitation", text: "心悸" }
+            ],
+            abdomen: [
+                { value: "stomachache", text: "腹痛" },
+                { value: "diarrhea", text: "腹泻" },
+                { value: "nausea", text: "恶心" },
+                { value: "constipation", text: "便秘" }
+            ],
+            back: [
+                { value: "back-pain", text: "背痛" },
+                { value: "waist-pain", text: "腰痛" },
+                { value: "neck-pain", text: "颈痛" },
+                { value: "spine-pain", text: "脊柱疼痛" }
+            ],
+            limbs: [
+                { value: "joint-pain", text: "关节痛" },
+                { value: "muscle-pain", text: "肌肉痛" },
+                { value: "numbness", text: "麻木" },
+                { value: "swelling", text: "肿胀" }
+            ],
+            skin: [
+                { value: "rash", text: "皮疹" },
+                { value: "itchy-skin", text: "皮肤瘙痒" },
+                { value: "dry-skin", text: "皮肤干燥" },
+                { value: "bruise", text: "皮肤瘀青" }
+            ]
+        };
+
+        // 扩充后的分析结果数据
+        const resultData = {
+            headache: "头痛可能由熬夜、压力大、感冒、高血压等原因引起，建议保证休息，若持续超过2天或疼痛剧烈请就医。",
+            dizziness: "头晕可能与低血糖、贫血、高血压、颈椎病等有关，建议先补充糖分和水分，若无缓解请就医检查。",
+            insomnia: "失眠可能与压力、作息不规律、情绪问题有关，建议调整作息，睡前避免电子设备，长期失眠请咨询神经内科。",
+            "memory-loss": "记忆力下降可能与熬夜、压力大、脑部供血不足有关，建议保证睡眠，持续加重请就医检查。",
+            "eye-pain": "眼痛可能由视疲劳、结膜炎、青光眼等引起，避免长时间用眼，持续疼痛请就诊眼科。",
+            "blurred-vision": "视力模糊可能与近视、视疲劳、白内障等有关，建议休息后观察，无改善请及时眼科检查。",
+            "dry-eye": "眼睛干涩多由视疲劳、干眼症引起，减少电子设备使用，使用人工泪液缓解，无改善请就医。",
+            "red-eye": "眼睛发红可能是结膜炎、角膜炎等，避免揉眼，及时就诊眼科，切勿自行用药。",
+            "ear-pain": "耳痛可能由中耳炎、外耳道炎引起，避免进水，及时就诊耳鼻喉科。",
+            tinnitus: "耳鸣可能与噪音暴露、耳部疾病、高血压有关，持续耳鸣请就诊耳鼻喉科检查。",
+            "hearing-loss": "听力下降可能由耳部疾病、噪音损伤引起，建议立即就诊耳鼻喉科，避免延误治疗。",
+            "ear-discharge": "耳朵流脓多为中耳炎，**请立即就医**，避免自行处理导致感染加重。",
+            "sore-throat": "咽痛多由上呼吸道感染、扁桃体炎引起，多喝水、避免辛辣食物，伴随高烧时请就医。",
+            "nasal-congestion": "鼻塞可能由鼻炎、感冒引起，生理盐水洗鼻缓解，持续超过1周请就诊耳鼻喉科。",
+            nosebleed: "流鼻血多由干燥、外伤引起，低头按压鼻翼止血，频繁流鼻血请就医检查。",
+            hoarseness: "声音嘶哑可能由用嗓过度、喉炎引起，少说话多喝水，持续超过2周请就诊耳鼻喉科。",
+            "chest-pain": "胸痛可能是心肺疾病、肋间神经痛等引起，**请立即就医检查**，切勿自行判断！",
+            cough: "咳嗽多由呼吸道感染、支气管炎引起，多喝水，持续超过1周或伴随咳痰、发烧请就医。",
+            "breath-short": "胸闷/气短可能与心肺问题、焦虑相关，若频繁出现请及时就医检查心电图、胸片。",
+            palpitation: "心悸可能与心律不齐、贫血、甲亢等有关，建议做心电图检查，明确病因后治疗。",
+            stomachache: "腹痛可能由饮食不当、肠胃炎、胆囊炎等引起，清淡饮食，持续疼痛或伴随呕吐、腹泻请就医。",
+            diarrhea: "腹泻建议补充电解质，避免油腻食物，超过1天无缓解或伴随高烧请就医。",
+            nausea: "恶心可能与肠胃不适、怀孕、中暑、肝胆疾病等有关，休息后无缓解请就医。",
+            constipation: "便秘多由饮食不当、缺乏运动引起，多吃膳食纤维，多喝水，长期便秘请就诊消化科。",
+            "back-pain": "背痛可能由肌肉劳损、腰椎问题引起，避免久坐，适当热敷，持续疼痛请就诊骨科。",
+            "waist-pain": "腰痛可能由腰肌劳损、腰椎间盘突出引起，避免弯腰负重，持续不缓解请就诊骨科。",
+            "neck-pain": "颈痛多由颈椎病、肌肉劳损引起，避免长时间低头，适当按摩，持续疼痛请就诊康复科。",
+            "spine-pain": "脊柱疼痛可能由脊柱炎、骨折等引起，**请及时就医检查**，避免剧烈运动。",
+            "joint-pain": "关节痛可能由劳损、关节炎、痛风等引起，避免过度运动，持续疼痛请就诊风湿免疫科。",
+            "muscle-pain": "肌肉痛多由运动劳损、感冒、电解质紊乱引起，适当休息，热敷可缓解，持续不缓解请就医。",
+            numbness: "四肢麻木可能与神经压迫、糖尿病、脑血管疾病有关，频繁出现请就医检查。",
+            swelling: "四肢肿胀可能与外伤、血栓、肾功能问题有关，单侧肿胀伴疼痛**请立即就医**。",
+            rash: "皮疹可能由过敏、感染、自身免疫病引起，避免抓挠，及时就诊皮肤科明确病因。",
+            "itchy-skin": "皮肤瘙痒可能由过敏、干燥、湿疹引起，避免刺激性食物，使用保湿霜，无缓解请就诊皮肤科。",
+            "dry-skin": "皮肤干燥多由环境、缺乏水分引起，多喝水，使用保湿护肤品，持续干燥请就诊皮肤科。",
+            bruise: "皮肤瘀青多由外伤引起，48小时内冷敷，之后热敷，无外伤却频繁瘀青请就医检查凝血功能。"
+        };
+
+        // 监听身体部位选择变化
+        const bodyPartSelect = document.getElementById('body-part');
+        const symptomSelect = document.getElementById('symptom');
+        const checkBtn = document.getElementById('check-btn');
+        const resultBox = document.getElementById('result');
+
+        bodyPartSelect.addEventListener('change', function() {
+            const selectedPart = this.value;
+            // 清空症状下拉框
+            symptomSelect.innerHTML = '';
+            
+            if (selectedPart) {
+                // 启用症状下拉框并添加对应选项
+                symptomSelect.disabled = false;
+                symptomData[selectedPart].forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.value;
+                    option.textContent = item.text;
+                    symptomSelect.appendChild(option);
+                });
+            } else {
+                // 禁用症状下拉框
+                symptomSelect.disabled = true;
+                const option = document.createElement('option');
+                option.value = "";
+                option.textContent = "--请先选择身体部位--";
+                symptomSelect.appendChild(option);
+                resultBox.innerHTML = '';
+            }
+            
+            // 清空结果框
+            resultBox.innerHTML = '';
+        });
+
+        // 查看分析按钮点击事件
+        checkBtn.addEventListener('click', function() {
+            const selectedSymptom = symptomSelect.value;
+            
+            if (!selectedSymptom) {
+                resultBox.innerHTML = '<div class="error-alert"><i class="fas fa-exclamation-circle"></i> 请先选择具体症状！</div>';
+                return;
+            }
+            
+            // 显示分析结果
+            resultBox.innerHTML = `
+                <div class="result-content">
+                    <h4><i class="fas fa-info-circle"></i> 症状分析</h4>
+                    <p>${resultData[selectedSymptom]}</p>
+                    <a href="#health-resource" class="result-link">需要进一步帮助？查看健康资源 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            `;
+        });
+
+        // 导航栏点击高亮 + 平滑滚动
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // 移除所有active类
+                navLinks.forEach(l => l.classList.remove('active'));
+                // 给当前点击的添加active类
+                this.classList.add('active');
+                // 平滑滚动到对应区域
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+                e.preventDefault();
+            });
+        });
+
+        // 页面滚动时导航高亮
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section-content');
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 100)) {
+                    currentSection = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

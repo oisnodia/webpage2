@@ -1,0 +1,726 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 全局变量定义 */
+:root {
+    /* 主色调 - 专业医疗蓝 */
+    --primary-color: #0F62FE;
+    --primary-light: #4285F4;
+    --primary-dark: #0043CE;
+    
+    /* 辅助色 */
+    --success-color: #009D48; /* 健康绿 */
+    --warning-color: #FF7D00; /* 警示橙 */
+    --danger-color: #DA1E28;  /* 危险红 */
+    --neutral-color: #64748B; /* 中性灰 */
+    --purple-color: #7B61FF;  /* 新增：紫色用于特殊强调 */
+    --teal-color: #0D9488;    /* 新增：青色用于健康资源 */
+    
+    /* 背景色 */
+    --bg-primary: #F0F7FF;    /* 浅蓝主背景 */
+    --bg-secondary: #E6F7FF;  /* 辅助背景色 */
+    --bg-white: #FFFFFF;      /* 纯白 */
+    --bg-light: #F8FAFC;      /* 浅灰 */
+    
+    /* 边框和阴影 */
+    --border-radius: 8px;
+    --border-radius-sm: 4px;
+    --border-color: #E2E8F0;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    
+    /* 间距 */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    
+    /* 过渡效果 */
+    --transition-default: all 0.3s ease;
+}
+
+/* 全局背景 - 核心：浅蓝纹理背景 */
+body {
+    background-color: var(--bg-primary);
+    background-image: 
+        radial-gradient(var(--primary-light) 0.5px, transparent 0.5px),
+        radial-gradient(var(--primary-light) 0.5px, var(--bg-primary) 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    background-attachment: fixed;
+    color: #1E293B;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+/* 头部样式 - 固定+居中 */
+header {
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.logo i {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+}
+
+.logo h1 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
+
+nav a {
+    color: #334155;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    transition: var(--transition-default);
+    border: 1px solid transparent;
+}
+
+nav a i {
+    font-size: 0.9rem;
+}
+
+nav a.active, nav a:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-light);
+    box-shadow: 0 2px 8px rgba(15, 98, 254, 0.2);
+}
+
+/* 主体内容 - 居中+正式布局 */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.section-content {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    transition: var(--transition-default);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 每个模块顶部的装饰线 - 增加颜色变化 */
+#home.section-content::before {
+    background: linear-gradient(90deg, #4285F4, #0F62FE);
+}
+
+#symptom-check.section-content::before {
+    background: linear-gradient(90deg, #009D48, #36D399);
+}
+
+#disease-library.section-content::before {
+    background: linear-gradient(90deg, #FF7D00, #FB923C);
+}
+
+#health-resource.section-content::before {
+    background: linear-gradient(90deg, #7B61FF, #A78BFA);
+}
+
+#tips.section-content::before {
+    background: linear-gradient(90deg, #DA1E28, #F87171);
+}
+
+.section-content:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.section-header {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--bg-light);
+}
+
+.section-header h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    letter-spacing: 0.3px;
+}
+
+/* 为不同模块标题设置不同颜色 */
+#symptom-check .section-header h2 {
+    color: var(--success-color);
+}
+
+#disease-library .section-header h2 {
+    color: var(--warning-color);
+}
+
+#health-resource .section-header h2 {
+    color: var(--purple-color);
+}
+
+#tips .section-header h2 {
+    color: var(--danger-color);
+}
+
+.section-header p {
+    color: var(--neutral-color);
+    font-size: 1rem;
+}
+
+/* 首页Banner - 正式大气 */
+.home-banner {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    border: none;
+}
+
+.banner-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.home-banner h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.home-banner p {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.95;
+}
+
+.banner-btn {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.warning-tip {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    display: inline-block;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 症状自查模块 - 正式表单样式 */
+.check-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--bg-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #1E293B;
+    font-size: 1rem;
+}
+
+.form-control {
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    transition: var(--transition-default);
+    background-color: var(--bg-white);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--success-color);
+    box-shadow: 0 0 0 3px rgba(0, 157, 72, 0.1);
+}
+
+.btn {
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-default);
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    justify-content: center;
+}
+
+/* 为不同模块的按钮设置不同颜色 */
+#symptom-check .primary-btn {
+    background-color: var(--success-color);
+}
+
+#symptom-check .primary-btn:hover {
+    background-color: #007E3D;
+    box-shadow: 0 4px 12px rgba(0, 157, 72, 0.3);
+}
+
+#disease-library .primary-btn {
+    background-color: var(--warning-color);
+}
+
+#disease-library .primary-btn:hover {
+    background-color: #E66A00;
+    box-shadow: 0 4px 12px rgba(255, 125, 0, 0.3);
+}
+
+#health-resource .primary-btn {
+    background-color: var(--purple-color);
+}
+
+#health-resource .primary-btn:hover {
+    background-color: #6A50E6;
+    box-shadow: 0 4px 12px rgba(123, 97, 255, 0.3);
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: white;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--bg-light);
+    box-shadow: 0 2px 8px rgba(15, 98, 254, 0.15);
+}
+
+.result-box {
+    margin-top: var(--spacing-lg);
+    min-height: 100px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error-alert {
+    background-color: rgba(218, 30, 40, 0.08);
+    color: var(--danger-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    border-left: 4px solid var(--danger-color);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.result-content {
+    background-color: rgba(0, 157, 72, 0.05);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-sm);
+    border-left: 4px solid var(--success-color);
+}
+
+.result-content h4 {
+    color: var(--success-color);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.result-link {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    color: var(--success-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-default);
+}
+
+.result-link:hover {
+    color: #007E3D;
+    text-decoration: underline;
+}
+
+/* 疾病库样式 - 正式卡片布局 */
+.disease-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.disease-card {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    transition: var(--transition-default);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--warning-color);
+}
+
+.disease-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--warning-color);
+}
+
+.card-icon {
+    font-size: 1.8rem;
+    color: var(--warning-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.disease-card h3 {
+    color: #1E293B;
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.symptom-tag {
+    color: var(--warning-color);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.suggestion {
+    color: #334155;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+/* 健康资源样式 - 正式分类卡片 */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.resource-card {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-default);
+    border: 1px solid var(--border-color);
+}
+
+.resource-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.card-header {
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 600;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.emergency-card .card-header {
+    background-color: var(--danger-color);
+}
+
+.official-card .card-header {
+    background-color: var(--primary-color);
+}
+
+.online-card .card-header {
+    background-color: var(--teal-color);
+}
+
+/* 新增医院和在线咨询卡片样式 */
+.hospital-card .card-header {
+    background-color: #1E40AF; /* 深蓝色 */
+}
+
+.online-consult-card .card-header {
+    background-color: #8B5CF6; /* 深紫色 */
+}
+
+.resource-list {
+    padding: var(--spacing-lg);
+    list-style: none;
+}
+
+.resource-list li {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.resource-list li:last-child {
+    border-bottom: none;
+}
+
+/* 链接样式优化 */
+.resource-list a {
+    color: #0F62FE;
+    text-decoration: none;
+    transition: var(--transition-default);
+}
+
+.resource-list a:hover {
+    color: #0043CE;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* 就医提示样式 - 正式警示卡片 */
+.tips-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.tips-card {
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    transition: var(--transition-default);
+    border: 1px solid var(--border-color);
+}
+
+.danger-tips {
+    background-color: rgba(218, 30, 40, 0.05);
+    border-left: 4px solid var(--danger-color);
+}
+
+.regular-tips {
+    background-color: rgba(255, 125, 0, 0.05);
+    border-left: 4px solid var(--warning-color);
+}
+
+.disclaimer-tips {
+    background-color: rgba(15, 98, 254, 0.05);
+    border-left: 4px solid var(--primary-color);
+    grid-column: 1 / -1;
+}
+
+.tips-card h3 {
+    color: #1E293B;
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.danger-tips h3 {
+    color: var(--danger-color);
+}
+
+.regular-tips h3 {
+    color: var(--warning-color);
+}
+
+.disclaimer-tips h3 {
+    color: var(--primary-color);
+}
+
+.tips-card ul {
+    padding-left: var(--spacing-lg);
+    color: #334155;
+}
+
+.tips-card li {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* 页脚样式 - 正式居中 */
+footer {
+    background-color: #1E293B;
+    color: rgba(255, 255, 255, 0.8);
+    padding: var(--spacing-xl) 0;
+    margin-top: var(--spacing-xl);
+    border-top: 4px solid var(--primary-color);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition-default);
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.contact {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.contact a {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式适配 - 保持正式感 */
+@media (max-width: 992px) {
+    .disease-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    /* 调整资源网格布局以适应新卡片 */
+    .resource-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: var(--spacing-md);
+    }
+    
+    .logo {
+        margin: var(--spacing-md) 0;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    main {
+        padding: var(--spacing-md);
+    }
+    
+    .section-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .banner-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-btn {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .tips-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .disclaimer-tips {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .check-container {
+        width: 100%;
+    }
+    
+    .footer-links {
+        gap: var(--spacing-md);
+    }
+}
